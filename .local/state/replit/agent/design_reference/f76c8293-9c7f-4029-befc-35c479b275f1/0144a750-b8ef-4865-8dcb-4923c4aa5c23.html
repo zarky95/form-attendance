@@ -1,0 +1,761 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetFolio - Pet Care Portfolio Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pet-orange': '#D2691E',
+                        'pet-coral': '#FF7F7F',
+                        'pet-sage': '#9CAF88',
+                        'pet-beige': '#F5E6D3',
+                        'pet-gold': '#FFD700',
+                        'pet-blue': '#87CEEB',
+                        'pet-cream': '#FEFCF3',
+                        'pet-charcoal': '#2D3436',
+                        'pet-gray': '#636E72'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-pet-cream font-inter text-pet-charcoal">
+    
+    <!-- @COMPONENT: Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-paw text-pet-orange text-2xl mr-2"></i>
+                        <span class="font-poppins font-bold text-xl text-pet-charcoal">PetFolio</span>
+                    </div>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#" class="text-pet-charcoal hover:text-pet-orange font-medium transition-colors duration-200">Browse</a>
+                        <a href="#" class="text-pet-gray hover:text-pet-orange transition-colors duration-200">Categories</a>
+                        <a href="#" class="text-pet-gray hover:text-pet-orange transition-colors duration-200">Featured</a>
+                        <a href="#" class="text-pet-gray hover:text-pet-orange transition-colors duration-200">About</a>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-4">
+                    <div class="relative">
+                        <input type="text" placeholder="Search portfolios..." class="w-64 pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pet-orange focus:border-transparent">
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button class="text-pet-gray hover:text-pet-orange" data-event="click:toggleMobileMenu">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Mobile menu -->
+        <div class="md:hidden bg-white border-t border-gray-200" data-mock="true" style="display: none;">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#" class="block px-3 py-2 text-pet-charcoal font-medium">Browse</a>
+                <a href="#" class="block px-3 py-2 text-pet-gray">Categories</a>
+                <a href="#" class="block px-3 py-2 text-pet-gray">Featured</a>
+                <a href="#" class="block px-3 py-2 text-pet-gray">About</a>
+            </div>
+            <div class="px-4 py-3 border-t border-gray-200">
+                <input type="text" placeholder="Search portfolios..." class="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pet-orange">
+            </div>
+        </div>
+    </header>
+    <!-- @END_COMPONENT: Header -->
+
+    <!-- @COMPONENT: Hero Section -->
+    <section class="bg-gradient-to-r from-pet-beige to-pet-cream py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="font-poppins font-bold text-4xl md:text-6xl text-pet-charcoal mb-6">
+                Discover Amazing <br><span class="text-pet-orange">Pet Care</span> Portfolios
+            </h1>
+            <p class="text-lg text-pet-gray mb-8 max-w-2xl mx-auto">
+                Explore detailed case studies from top pet care professionals. Find inspiration for grooming, training, veterinary care, and more.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <button class="bg-pet-orange text-white px-8 py-3 rounded-lg font-medium hover:bg-opacity-90 transition-all duration-200 transform hover:scale-105">
+                    Browse Portfolios
+                </button>
+                <button class="border border-pet-orange text-pet-orange px-8 py-3 rounded-lg font-medium hover:bg-pet-orange hover:text-white transition-all duration-200">
+                    View Featured Cases
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Hero Section -->
+
+    <!-- @COMPONENT: Filter Bar -->
+    <section class="bg-white py-6 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
+                <div class="flex flex-wrap items-center space-x-2 space-y-2 lg:space-y-0">
+                    <span class="text-sm font-medium text-pet-gray mr-4">Filter by category:</span>
+                    <button class="px-4 py-2 bg-pet-orange text-white rounded-full text-sm font-medium" data-filter="all">All</button>
+                    <button class="px-4 py-2 bg-gray-100 text-pet-gray rounded-full text-sm font-medium hover:bg-pet-sage hover:text-white transition-colors" data-filter="grooming">Dog Grooming</button>
+                    <button class="px-4 py-2 bg-gray-100 text-pet-gray rounded-full text-sm font-medium hover:bg-pet-sage hover:text-white transition-colors" data-filter="training">Training</button>
+                    <button class="px-4 py-2 bg-gray-100 text-pet-gray rounded-full text-sm font-medium hover:bg-pet-sage hover:text-white transition-colors" data-filter="veterinary">Veterinary</button>
+                    <button class="px-4 py-2 bg-gray-100 text-pet-gray rounded-full text-sm font-medium hover:bg-pet-sage hover:text-white transition-colors" data-filter="boarding">Pet Boarding</button>
+                    <button class="px-4 py-2 bg-gray-100 text-pet-gray rounded-full text-sm font-medium hover:bg-pet-sage hover:text-white transition-colors" data-filter="photography">Pet Photography</button>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <select class="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pet-orange">
+                        <option>Sort by: Most Recent</option>
+                        <option>Most Popular</option>
+                        <option>Highest Rated</option>
+                        <option>A-Z</option>
+                    </select>
+                    
+                    <div class="flex items-center space-x-2">
+                        <button class="p-2 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors" data-view="grid" title="Grid View">
+                            <i class="fas fa-th text-pet-orange"></i>
+                        </button>
+                        <button class="p-2 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors" data-view="list" title="List View">
+                            <i class="fas fa-list text-pet-gray"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Filter Bar -->
+
+    <!-- @COMPONENT: Portfolio Grid -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+                
+                <!-- @MAP: portfolios.map(portfolio => ( -->
+                <!-- Portfolio Card 1 - Dog Grooming -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden" data-category="grooming">
+                    <div class="relative">
+                        <!-- Professional dog grooming transformation with golden retriever before/after shots -->
+                        <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="Professional dog grooming transformation" class="w-full h-48 object-cover" data-lightbox="portfolio-1">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-pet-sage text-white px-3 py-1 rounded-full text-xs font-medium">Dog Grooming</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <button class="bg-white bg-opacity-80 p-2 rounded-full hover:bg-opacity-100 transition-all" data-event="click:sharePortfolio">
+                                <i class="fas fa-share-alt text-pet-orange"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="font-poppins font-semibold text-lg text-pet-charcoal mb-2" data-bind="portfolio.title">Golden Retriever Full Grooming Transformation</h3>
+                        <p class="text-pet-gray text-sm mb-4" data-bind="portfolio.description">Complete grooming service including bath, cut, nail trim, and styling for a beautiful golden retriever.</p>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-pet-beige rounded-full flex items-center justify-center">
+                                    <i class="fas fa-scissors text-pet-orange text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-sm" data-bind="professional.name">Sarah's Pet Spa</p>
+                                    <p class="text-xs text-pet-gray" data-bind="professional.location">San Francisco, CA</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-1">
+                                <i class="fas fa-star text-pet-gold text-sm"></i>
+                                <span class="text-sm font-medium" data-bind="portfolio.rating">4.9</span>
+                                <span class="text-xs text-pet-gray">(<span data-bind="portfolio.reviews">127</span>)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4 text-xs text-pet-gray">
+                                <span><i class="fas fa-clock mr-1"></i>2 hours</span>
+                                <span><i class="fas fa-dollar-sign mr-1"></i>$85</span>
+                            </div>
+                            
+                            <button class="text-pet-orange font-medium text-sm hover:text-pet-coral transition-colors" data-event="click:viewCaseStudy">
+                                View Case Study <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Card 2 - Dog Training -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden" data-category="training">
+                    <div class="relative">
+                        <!-- Dog training session with professional trainer and german shepherd -->
+                        <img src="https://images.unsplash.com/photo-1551717743-49959800b1f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="Professional dog training session" class="w-full h-48 object-cover" data-lightbox="portfolio-2">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-pet-blue text-white px-3 py-1 rounded-full text-xs font-medium">Training</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <button class="bg-white bg-opacity-80 p-2 rounded-full hover:bg-opacity-100 transition-all">
+                                <i class="fas fa-share-alt text-pet-orange"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="font-poppins font-semibold text-lg text-pet-charcoal mb-2">Advanced Obedience Training Program</h3>
+                        <p class="text-pet-gray text-sm mb-4">8-week intensive training program that transformed a reactive rescue into a well-behaved family companion.</p>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-pet-beige rounded-full flex items-center justify-center">
+                                    <i class="fas fa-graduation-cap text-pet-orange text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-sm">Michael's Dog Academy</p>
+                                    <p class="text-xs text-pet-gray">Austin, TX</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-1">
+                                <i class="fas fa-star text-pet-gold text-sm"></i>
+                                <span class="text-sm font-medium">5.0</span>
+                                <span class="text-xs text-pet-gray">(89)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4 text-xs text-pet-gray">
+                                <span><i class="fas fa-clock mr-1"></i>8 weeks</span>
+                                <span><i class="fas fa-dollar-sign mr-1"></i>$650</span>
+                            </div>
+                            
+                            <button class="text-pet-orange font-medium text-sm hover:text-pet-coral transition-colors">
+                                View Case Study <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Card 3 - Veterinary -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden" data-category="veterinary">
+                    <div class="relative">
+                        <!-- Veterinary examination room with professional vet examining a cat -->
+                        <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="Veterinary examination with professional vet" class="w-full h-48 object-cover" data-lightbox="portfolio-3">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-pet-coral text-white px-3 py-1 rounded-full text-xs font-medium">Veterinary</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <button class="bg-white bg-opacity-80 p-2 rounded-full hover:bg-opacity-100 transition-all">
+                                <i class="fas fa-share-alt text-pet-orange"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="font-poppins font-semibold text-lg text-pet-charcoal mb-2">Complex Surgical Recovery Case</h3>
+                        <p class="text-pet-gray text-sm mb-4">Comprehensive treatment plan and rehabilitation for a cat with multiple injuries after an accident.</p>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-pet-beige rounded-full flex items-center justify-center">
+                                    <i class="fas fa-user-md text-pet-orange text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-sm">Dr. Emma's Animal Hospital</p>
+                                    <p class="text-xs text-pet-gray">Seattle, WA</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-1">
+                                <i class="fas fa-star text-pet-gold text-sm"></i>
+                                <span class="text-sm font-medium">4.8</span>
+                                <span class="text-xs text-pet-gray">(203)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4 text-xs text-pet-gray">
+                                <span><i class="fas fa-clock mr-1"></i>3 months</span>
+                                <span><i class="fas fa-dollar-sign mr-1"></i>$2,400</span>
+                            </div>
+                            
+                            <button class="text-pet-orange font-medium text-sm hover:text-pet-coral transition-colors">
+                                View Case Study <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Card 4 - Pet Photography -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden" data-category="photography">
+                    <div class="relative">
+                        <!-- Professional pet photography studio session with beautiful golden retriever portraits -->
+                        <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="Professional pet photography session" class="w-full h-48 object-cover" data-lightbox="portfolio-4">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-pet-gold text-white px-3 py-1 rounded-full text-xs font-medium">Photography</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <button class="bg-white bg-opacity-80 p-2 rounded-full hover:bg-opacity-100 transition-all">
+                                <i class="fas fa-share-alt text-pet-orange"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="font-poppins font-semibold text-lg text-pet-charcoal mb-2">Family Pet Portrait Session</h3>
+                        <p class="text-pet-gray text-sm mb-4">Beautiful studio portraits capturing the personality and bond between pets and their family members.</p>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-pet-beige rounded-full flex items-center justify-center">
+                                    <i class="fas fa-camera text-pet-orange text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-sm">Paws & Portraits Studio</p>
+                                    <p class="text-xs text-pet-gray">Denver, CO</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-1">
+                                <i class="fas fa-star text-pet-gold text-sm"></i>
+                                <span class="text-sm font-medium">4.9</span>
+                                <span class="text-xs text-pet-gray">(156)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4 text-xs text-pet-gray">
+                                <span><i class="fas fa-clock mr-1"></i>1 hour</span>
+                                <span><i class="fas fa-dollar-sign mr-1"></i>$195</span>
+                            </div>
+                            
+                            <button class="text-pet-orange font-medium text-sm hover:text-pet-coral transition-colors">
+                                View Case Study <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Card 5 - Pet Boarding -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden" data-category="boarding">
+                    <div class="relative">
+                        <!-- Modern pet boarding facility with happy dogs playing in spacious indoor area -->
+                        <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="Modern pet boarding facility with happy dogs" class="w-full h-48 object-cover" data-lightbox="portfolio-5">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-medium">Pet Boarding</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <button class="bg-white bg-opacity-80 p-2 rounded-full hover:bg-opacity-100 transition-all">
+                                <i class="fas fa-share-alt text-pet-orange"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="font-poppins font-semibold text-lg text-pet-charcoal mb-2">Luxury Pet Resort Experience</h3>
+                        <p class="text-pet-gray text-sm mb-4">Premium boarding experience with daily activities, socialization, and personalized care for anxious pets.</p>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-pet-beige rounded-full flex items-center justify-center">
+                                    <i class="fas fa-home text-pet-orange text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-sm">Happy Tails Resort</p>
+                                    <p class="text-xs text-pet-gray">Miami, FL</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-1">
+                                <i class="fas fa-star text-pet-gold text-sm"></i>
+                                <span class="text-sm font-medium">4.7</span>
+                                <span class="text-xs text-pet-gray">(342)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4 text-xs text-pet-gray">
+                                <span><i class="fas fa-clock mr-1"></i>5 days</span>
+                                <span><i class="fas fa-dollar-sign mr-1"></i>$75/day</span>
+                            </div>
+                            
+                            <button class="text-pet-orange font-medium text-sm hover:text-pet-coral transition-colors">
+                                View Case Study <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Card 6 - Additional Grooming -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden" data-category="grooming">
+                    <div class="relative">
+                        <!-- Cat grooming session showing professional groomer with fluffy persian cat -->
+                        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="Professional cat grooming session" class="w-full h-48 object-cover" data-lightbox="portfolio-6">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-pet-sage text-white px-3 py-1 rounded-full text-xs font-medium">Cat Grooming</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <button class="bg-white bg-opacity-80 p-2 rounded-full hover:bg-opacity-100 transition-all">
+                                <i class="fas fa-share-alt text-pet-orange"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="font-poppins font-semibold text-lg text-pet-charcoal mb-2">Persian Cat De-matting & Styling</h3>
+                        <p class="text-pet-gray text-sm mb-4">Gentle de-matting process and full styling service for a severely matted Persian cat rescue.</p>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-pet-beige rounded-full flex items-center justify-center">
+                                    <i class="fas fa-scissors text-pet-orange text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-sm">Whiskers & Claws Spa</p>
+                                    <p class="text-xs text-pet-gray">Portland, OR</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-1">
+                                <i class="fas fa-star text-pet-gold text-sm"></i>
+                                <span class="text-sm font-medium">4.9</span>
+                                <span class="text-xs text-pet-gray">(93)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4 text-xs text-pet-gray">
+                                <span><i class="fas fa-clock mr-1"></i>3 hours</span>
+                                <span><i class="fas fa-dollar-sign mr-1"></i>$145</span>
+                            </div>
+                            
+                            <button class="text-pet-orange font-medium text-sm hover:text-pet-coral transition-colors">
+                                View Case Study <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+                
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button class="bg-white border border-pet-orange text-pet-orange px-8 py-3 rounded-lg font-medium hover:bg-pet-orange hover:text-white transition-all duration-200">
+                    Load More Portfolios
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Portfolio Grid -->
+
+    <!-- @COMPONENT: Case Study Modal -->
+    <div id="case-study-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50" style="display: none;" data-mock="true">
+        <div class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-center">
+                <h2 class="font-poppins font-bold text-2xl text-pet-charcoal">Golden Retriever Full Grooming Transformation</h2>
+                <button class="text-pet-gray hover:text-pet-charcoal" data-event="click:closeModal">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="p-6">
+                <!-- Before/After Gallery -->
+                <div class="mb-8">
+                    <h3 class="font-poppins font-semibold text-lg mb-4">Before & After</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Before and after transformation photos of the same golden retriever -->
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400" alt="Before grooming - matted golden retriever" class="w-full h-64 object-cover rounded-lg">
+                            <div class="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">Before</div>
+                        </div>
+                        <div class="relative">
+                            <!-- Professional groomed golden retriever looking beautiful and fluffy -->
+                            <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400" alt="After grooming - beautifully groomed golden retriever" class="w-full h-64 object-cover rounded-lg">
+                            <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">After</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Challenge -->
+                <div class="mb-8">
+                    <h3 class="font-poppins font-semibold text-lg mb-4">The Challenge</h3>
+                    <p class="text-pet-gray leading-relaxed">
+                        Max, a 3-year-old Golden Retriever, came to us severely matted after being neglected for several months. 
+                        The owner had tried to brush him at home but the mats were too tight and causing skin irritation. 
+                        The challenge was to safely remove all mats while keeping Max comfortable and stress-free throughout the process.
+                    </p>
+                </div>
+
+                <!-- Process -->
+                <div class="mb-8">
+                    <h3 class="font-poppins font-semibold text-lg mb-4">Our Process</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-pet-beige rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-heart text-pet-orange text-xl"></i>
+                            </div>
+                            <h4 class="font-medium mb-2">Assessment & Comfort</h4>
+                            <p class="text-sm text-pet-gray">Thorough assessment of coat condition and building trust with Max</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-pet-beige rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-scissors text-pet-orange text-xl"></i>
+                            </div>
+                            <h4 class="font-medium mb-2">Gentle De-matting</h4>
+                            <p class="text-sm text-pet-gray">Careful removal of mats using specialized tools and techniques</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-pet-beige rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-star text-pet-orange text-xl"></i>
+                            </div>
+                            <h4 class="font-medium mb-2">Full Service</h4>
+                            <p class="text-sm text-pet-gray">Bath, blow-dry, trim, nail care, and final styling</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <div class="mb-8">
+                    <h3 class="font-poppins font-semibold text-lg mb-4">Results & Impact</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="text-center p-4 bg-pet-beige bg-opacity-30 rounded-lg">
+                            <div class="text-2xl font-bold text-pet-orange">2</div>
+                            <div class="text-sm text-pet-gray">Hours Total</div>
+                        </div>
+                        <div class="text-center p-4 bg-pet-beige bg-opacity-30 rounded-lg">
+                            <div class="text-2xl font-bold text-pet-orange">0</div>
+                            <div class="text-sm text-pet-gray">Stress Signs</div>
+                        </div>
+                        <div class="text-center p-4 bg-pet-beige bg-opacity-30 rounded-lg">
+                            <div class="text-2xl font-bold text-pet-orange">100%</div>
+                            <div class="text-sm text-pet-gray">Mat Removal</div>
+                        </div>
+                        <div class="text-center p-4 bg-pet-beige bg-opacity-30 rounded-lg">
+                            <div class="text-2xl font-bold text-pet-orange">5★</div>
+                            <div class="text-sm text-pet-gray">Owner Rating</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial -->
+                <div class="mb-8 bg-pet-cream p-6 rounded-lg">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-pet-orange rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-quote-left text-white"></i>
+                        </div>
+                        <div>
+                            <p class="text-pet-charcoal italic mb-3">
+                                "I was so embarrassed by Max's condition, but Sarah and her team were incredibly understanding and professional. 
+                                Max came out looking like a completely different dog! The transformation was amazing, and Max was so calm throughout the entire process."
+                            </p>
+                            <p class="font-medium text-pet-charcoal">- Jennifer M., Dog Owner</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Share Buttons -->
+                <div class="border-t border-gray-200 pt-6">
+                    <h3 class="font-poppins font-semibold text-lg mb-4">Share This Case Study</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Facebook</span>
+                        </button>
+                        <button class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg hover:from-purple-600 hover:to-pink-600 transition-colors flex items-center space-x-2">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </button>
+                        <button class="bg-blue-400 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition-colors flex items-center space-x-2">
+                            <i class="fab fa-twitter"></i>
+                            <span>Twitter</span>
+                        </button>
+                        <button class="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors flex items-center space-x-2">
+                            <i class="fas fa-link"></i>
+                            <span>Copy Link</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: Case Study Modal -->
+
+    <!-- @COMPONENT: Image Lightbox -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-90" style="display: none;" data-mock="true">
+        <div class="relative max-w-4xl max-h-full">
+            <button class="absolute top-4 right-4 text-white hover:text-gray-300 z-10" data-event="click:closeLightbox">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+            <img id="lightbox-image" src="" alt="" class="max-w-full max-h-full object-contain rounded-lg">
+            
+            <!-- Navigation buttons -->
+            <button class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300" data-event="click:previousImage">
+                <i class="fas fa-chevron-left text-3xl"></i>
+            </button>
+            <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300" data-event="click:nextImage">
+                <i class="fas fa-chevron-right text-3xl"></i>
+            </button>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: Image Lightbox -->
+
+    <!-- @COMPONENT: Footer -->
+    <footer class="bg-pet-charcoal text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-paw text-pet-orange text-2xl mr-2"></i>
+                        <span class="font-poppins font-bold text-xl">PetFolio</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        Discover and share amazing pet care portfolios. Connect with professionals and get inspired by beautiful case studies from around the world.
+                    </p>
+                    <div class="flex space-x-4">
+                        <button class="text-gray-400 hover:text-pet-orange transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </button>
+                        <button class="text-gray-400 hover:text-pet-orange transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </button>
+                        <button class="text-gray-400 hover:text-pet-orange transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-poppins font-semibold text-lg mb-4">Categories</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-pet-orange transition-colors">Dog Grooming</a></li>
+                        <li><a href="#" class="hover:text-pet-orange transition-colors">Pet Training</a></li>
+                        <li><a href="#" class="hover:text-pet-orange transition-colors">Veterinary Care</a></li>
+                        <li><a href="#" class="hover:text-pet-orange transition-colors">Pet Photography</a></li>
+                        <li><a href="#" class="hover:text-pet-orange transition-colors">Pet Boarding</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-poppins font-semibold text-lg mb-4">Support</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-pet-orange transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-pet-orange transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-pet-orange transition-colors">Submit Portfolio</a></li>
+                        <li><a href="#" class="hover:text-pet-orange transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-pet-orange transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 PetFolio. All rights reserved. Made with <i class="fas fa-heart text-pet-coral"></i> for pet lovers everywhere.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        // TODO: Implement business logic, API calls, and state management
+        
+        (function() {
+            // Mobile menu functionality
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('[data-event="click:toggleMobileMenu"]')) {
+                    const mobileMenu = document.querySelector('.md\\:hidden .bg-white');
+                    mobileMenu.style.display = mobileMenu.style.display === 'none' ? 'block' : 'none';
+                }
+            });
+
+            // Filter functionality
+            document.addEventListener('click', function(e) {
+                if (e.target.hasAttribute('data-filter')) {
+                    // Remove active class from all filter buttons
+                    document.querySelectorAll('[data-filter]').forEach(btn => {
+                        btn.className = btn.className.replace('bg-pet-orange text-white', 'bg-gray-100 text-pet-gray');
+                    });
+                    
+                    // Add active class to clicked button
+                    e.target.className = e.target.className.replace('bg-gray-100 text-pet-gray', 'bg-pet-orange text-white');
+                    
+                    // TODO: Filter portfolio cards based on category
+                }
+            });
+
+            // View toggle functionality
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('[data-view]')) {
+                    const view = e.target.closest('[data-view]').getAttribute('data-view');
+                    const grid = document.getElementById('portfolio-grid');
+                    
+                    // Remove active state from both buttons
+                    document.querySelectorAll('[data-view]').forEach(btn => {
+                        btn.querySelector('i').className = btn.querySelector('i').className.replace('text-pet-orange', 'text-pet-gray');
+                    });
+                    
+                    // Add active state to clicked button
+                    e.target.closest('[data-view]').querySelector('i').className = 
+                        e.target.closest('[data-view]').querySelector('i').className.replace('text-pet-gray', 'text-pet-orange');
+                    
+                    if (view === 'list') {
+                        grid.className = grid.className.replace('grid-cols-1 md:grid-cols-2 lg:grid-cols-3', 'grid-cols-1');
+                    } else {
+                        grid.className = grid.className.replace('grid-cols-1', 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3');
+                    }
+                }
+            });
+
+            // Case study modal
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('[data-event="click:viewCaseStudy"]')) {
+                    document.getElementById('case-study-modal').style.display = 'flex';
+                }
+                
+                if (e.target.closest('[data-event="click:closeModal"]')) {
+                    document.getElementById('case-study-modal').style.display = 'none';
+                }
+            });
+
+            // Lightbox functionality
+            document.addEventListener('click', function(e) {
+                if (e.target.hasAttribute('data-lightbox')) {
+                    document.getElementById('lightbox-modal').style.display = 'flex';
+                    document.getElementById('lightbox-image').src = e.target.src;
+                    document.getElementById('lightbox-image').alt = e.target.alt;
+                }
+                
+                if (e.target.closest('[data-event="click:closeLightbox"]')) {
+                    document.getElementById('lightbox-modal').style.display = 'none';
+                }
+            });
+
+            // Share functionality
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('[data-event="click:sharePortfolio"]')) {
+                    // TODO: Implement social sharing functionality
+                    console.log('Share portfolio clicked');
+                }
+            });
+
+            // Close modals on outside click
+            document.addEventListener('click', function(e) {
+                if (e.target.id === 'case-study-modal' || e.target.id === 'lightbox-modal') {
+                    e.target.style.display = 'none';
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
